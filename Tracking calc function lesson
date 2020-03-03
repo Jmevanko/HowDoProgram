@@ -2,7 +2,7 @@
 ##### Define global Variables#####
 ##################################
 flat_charge = 125.00
-
+weight =41.5
 ##################################
 ##### Define functions here ######
 ##################################
@@ -17,11 +17,11 @@ def ground_shipping(weight):
     cost_ground = 4
     return ((cost_ground * weight) + 20.00)
   else:
-    cost = 4.75
+    cost_ground= 4.75
     return(cost_ground * weight + 20)
   return (cost_ground)
 
-print(ground_shipping(25))
+print(ground_shipping(weight))
 
 def drone_shipping(weight):
   if weight <= 2:
@@ -37,8 +37,14 @@ def drone_shipping(weight):
     cost_drone = 14.25
     return(cost_drone * weight)
   return (cost_drone)
+print(drone_shipping(weight))
 
-def cheapest_shipping(cost_drone, cost_ground, flat_charge):
-  if cost_drone < cost_ground and cost_drone < flat_charge:
-    return("You should use drone shipping it will cost "+str(cost_drone))
+if drone_shipping(weight) < ground_shipping(weight) and drone_shipping(weight) < flat_charge:
+    print("You should ship using drone shipping, it will cost $" + str(drone_shipping(weight)))
+    
+elif ground_shipping(weight) < drone_shipping(weight) and ground_shipping(weight) < flat_charge:
+    print("You should ship using ground shipping, it will cost $" + str(drone_shipping(weight)))
+
+else:
+  print("You should ship using the flat rate, it will cost $125.00")
   
