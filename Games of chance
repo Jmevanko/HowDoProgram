@@ -1,0 +1,69 @@
+import random
+
+money = 100
+bet = 0
+Heads = 1
+Tails = 2
+Even = 3
+Odd = 4
+
+#Write your game of chance functions here
+def coin_flip(guess, bet):
+  if bet > money or bet < 0:
+    print("That is not a valid bet, please try again")
+    
+  else:
+    flip = random.randint(1,2)
+    if flip == 1:
+      new_money = money + bet
+      print("Heads. You just won " + str(bet) + " dollars. Your total money is " + str(new_money) +  " dollars remaining!")
+    else:
+        loss = -1 * bet
+        new_money = money + loss
+        print("Tails. You just lost " + str(bet) + " dollars. Your total  money is " + str(new_money) + " dollars remaining!")
+    return(new_money)
+    
+def cho_han(guess, bet):
+  roll1 = random.randint(1,6)
+  roll2 = random.randint(1,6)
+  total_roll = roll1+roll2
+  print("The roll was " + str(total_roll))
+  if bet > money or bet < 0:
+    print("That is not a valid bet, please try again")
+  else:
+    if total_roll % 2 == 0:
+      new_money = money + bet
+      print("Even, you win " + str(bet) + " your new total is $" +             str(new_money))
+    else:
+      loss = -1 * bet
+      new_money = money + loss
+      print("Odd, You lose $" + str(bet) + ". Your new total is $" +           str(new_money))
+    
+def card_game(bet):
+  card1 = random.randint(1,10)
+  card2 = random.randint(1,10)
+  if bet > money or bet < 0:
+    print("That is not a valid bet, please try again")
+  else:
+    if card1 > card2:
+      new_money = money + bet
+      print("You win! your new total is $" + str(new_money))
+    elif card1 < card2:
+      loss = -1 * bet
+      new_money = money + loss
+      print("You lose, your new total is $" + str(new_money))
+    else:
+      new_money = money + 0
+      print("It's a tie! your total is $" + str(new_money))
+      
+def roulette(guess, bet):
+  if bet > money or bet < 0:
+    print("That is not a valid bet, please try again")
+  else:
+    spin 
+
+#Call your game of chance functions here
+
+coin_flip(Heads, 10)
+cho_han(Even, 10)
+card_game(10)
