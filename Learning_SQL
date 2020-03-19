@@ -5,3 +5,17 @@ SELECT CASE
   ELSE 'Other'
 END AS 'Source'
 From hacker_news;
+
+
+MORE SQL PRACTIC
+
+SELECT CASE
+   WHEN medium LIKE '%gold%' THEN 'Gold'
+   WHEN medium LIKE '%silver%' THEN 'Silver'
+   ELSE NULL
+  END AS 'Bling',
+  COUNT(*)
+FROM met
+WHERE Bling IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
