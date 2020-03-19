@@ -19,3 +19,9 @@ FROM met
 WHERE Bling IS NOT NULL
 GROUP BY 1
 ORDER BY 2 DESC;
+
+
+ SELECT date, ROUND(AVG(money_in),2),ROUND(AVG(money_out),2)
+ FROM transactions
+ GROUP BY 1;
+
