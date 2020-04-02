@@ -7,7 +7,7 @@ Tails = 2
 Even = 3
 Odd = 4
 
-Write your game of chance functions here
+#Write your game of chance functions here
 def coin_flip(guess, bet):
   if bet > money or bet < 0:
     print("That is not a valid bet, please try again")
@@ -63,26 +63,46 @@ def roulette(guess, bet):
   if bet > money or bet < 0:
     print("That is not a valid bet, please try again")
   else:
-      if spin % 2 == 0:
-        if guess == Even:
+    if spin % 2 == 0:
+      if guess == Even:
+        new_money = money + bet
+        print("You win! your new total is $" + str(new_money))
+      else:
+        loss = -1 * bet
+        new_money = money + loss
+        print("You lose $" + str(bet) + ". Your new total is $" +               str(new_money))
+      if spin % 2 != 0:
+        if guess == Odd:
+           new_money = money + bet
+           print("You win! your new total is $" + str(new_money))
+        else:
+           loss = -1 * bet
+           new_money = money + loss
+           print("You lose $" + str(bet) + ". Your new total is $" +                str(new_money))
+      elif guess == spin:
+        if guess == Odd:
           new_money = money + bet
           print("You win! your new total is $" + str(new_money))
         else:
           loss = -1 * bet
-           new_money = money + loss
-           print("You lose $" + str(bet) + ". Your new total is $" +                str(new_money))
-            
-        else:
-          loss = -1 * bet
           new_money = money + loss
-          print("Odd, You lose $" + str(bet) + ". Your new total is $" +           str(new_money))
+          print("You lose $" + str(bet) + ". Your new total is $" +               str(new_money))    
+      else:
+        loss = -1 * bet
+        new_money = money + loss
+        print("Odd, You lose $" + str(bet) + ". Your new total is $" +           str(new_money))
       
       
    
-
+  
 #Call your game of chance functions here
-
-coin_flip(Heads, 10)
+money += coin_flip("Heads", 10)
+money = money
+print("you have $" + str(money))
 cho_han(Even, 10)
+print("you have $" + str(money))
 card_game(10)
+print("you have $" + str(money))
 roulette(Even,20)
+print("you have $" + str(money))
+ 
