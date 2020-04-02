@@ -7,7 +7,7 @@ Tails = 2
 Even = 3
 Odd = 4
 
-#Write your game of chance functions here
+Write your game of chance functions here
 def coin_flip(guess, bet):
   if bet > money or bet < 0:
     print("That is not a valid bet, please try again")
@@ -57,13 +57,32 @@ def card_game(bet):
       print("It's a tie! your total is $" + str(new_money))
       
 def roulette(guess, bet):
+  spin = random.randint(0,36)
+  print(spin)
+  
   if bet > money or bet < 0:
     print("That is not a valid bet, please try again")
   else:
-    spin 
+      if spin % 2 == 0:
+        if guess == Even:
+          new_money = money + bet
+          print("You win! your new total is $" + str(new_money))
+        else:
+          loss = -1 * bet
+           new_money = money + loss
+           print("You lose $" + str(bet) + ". Your new total is $" +                str(new_money))
+            
+        else:
+          loss = -1 * bet
+          new_money = money + loss
+          print("Odd, You lose $" + str(bet) + ". Your new total is $" +           str(new_money))
+      
+      
+   
 
 #Call your game of chance functions here
 
 coin_flip(Heads, 10)
 cho_han(Even, 10)
 card_game(10)
+roulette(Even,20)
